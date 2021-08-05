@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import styled from 'styled-components';
 
 import { StyledContainer } from '../StyledContainer';
 import { FooterContent } from '../FooterContent';
@@ -13,16 +12,11 @@ const StyledFooter = styled.footer`
   color: ${({ theme }) => theme.textPrimary};
 `;
 
-export const Footer: React.FC = (): JSX.Element => {
-  const themeContext = useContext(ThemeContext);
-  const { i18n } = useTranslation('home');
-
-  return (
-    <StyledFooter>
-      <StyledContainer>
-        <SocialBlock />
-        <FooterContent />
-      </StyledContainer>
-    </StyledFooter>
-  );
-};
+export const Footer: React.FC = (): JSX.Element => (
+  <StyledFooter>
+    <StyledContainer>
+      <SocialBlock />
+      <FooterContent />
+    </StyledContainer>
+  </StyledFooter>
+);

@@ -15,6 +15,8 @@ export const Seo: React.FC = (): JSX.Element => (
     <meta name="author" content="Damian Duda" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet" rel="stylesheet" />
+
     <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
     <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
   </Helmet>

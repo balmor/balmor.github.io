@@ -6,14 +6,15 @@ export enum ThemeMode {
 export type StyledTheme = {
   primary: string;
   secondary: string;
-  headerBg: string;
   third: string;
+  headerBg: string;
   neutral: string;
   boxBg: string;
   boxBorder: string;
   textPrimary: string;
   textSecondary: string;
   textThird: string;
+  textFourth: string;
   buttonBg: string;
   buttonFg: string;
   buttonBgHover: string;

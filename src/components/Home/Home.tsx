@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Translate } from '../Translate/Translate';
 
 const StyledHome = styled.section`
-  background: #999;
+  background: #eee;
   color: ${({ theme }) => theme.textPrimary};
   height: 500px;
   padding-top: 100px;

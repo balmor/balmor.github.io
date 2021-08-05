@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import { useTranslation } from 'react-i18next';
 
 import { HeaderContainer } from '../StyledContainer';
 import { Logo } from '../Logo'
@@ -34,7 +33,6 @@ const StyledSwitcher = styled(StyledLogoText)`
 
 export const Header: React.FC = (): JSX.Element => {
   const themeContext = useContext(ThemeContext);
-  const { i18n } = useTranslation('home');
 
   return (
     <StyledHeader>

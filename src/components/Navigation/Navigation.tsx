@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { Translate } from '../Translate/Translate';
 
-const StyledNavigation = styled.nav`
+export const StyledNavigation = styled.nav<StyledNavigationProps>`
   ul {
     display: inline-block;
     margin: 0;
@@ -16,7 +16,7 @@ const StyledNavigation = styled.nav`
   }
 `;
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   display: block;
   height: 8rem;
   line-height: 8rem;
@@ -85,12 +85,19 @@ export const linkProperties = {
   offset: -100,
 }
 
-export const Navigation: React.FC = (): JSX.Element => (
-  <StyledNavigation>
-    <ul>
-      <li><StyledLink to="home" { ...linkProperties }><span><Translate i18nKey="home" /></span></StyledLink></li>
-      <li><StyledLink to="about" { ...linkProperties }><span><Translate i18nKey="about" /></span></StyledLink></li>
-      <li><StyledLink to="contact" { ...linkProperties }><span><Translate i18nKey="contact" /></span></StyledLink></li>
-    </ul>
-  </StyledNavigation>
-);
+type StyledNavigationProps = {
+  className?: string;
+}
+
+export const Navigation: React.FC<StyledNavigationProps> = ({ className = '' }): JSX.Element => {
+
+  return (
+    <StyledNavigation className={className}>
+      <ul>
+        <li><StyledLink to="home" { ...linkProperties }><span><Translate i18nKey="home" /></span></StyledLink></li>
+        <li><StyledLink to="about" { ...linkProperties }><span><Translate i18nKey="about" /></span></StyledLink></li>
+        <li><StyledLink to="contact" { ...linkProperties }><span><Translate i18nKey="contact" /></span></StyledLink></li>
+      </ul>
+    </StyledNavigation>
+  )
+};

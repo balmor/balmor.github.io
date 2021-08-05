@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
@@ -62,7 +62,8 @@ const StyledDropdown = styled.div`
 `;
 
 export const LangSwitcher: React.FC = () => {
-  const [isOpen, setDropdown] = useState(true);
+  const styledButton = useRef<HTMLButtonElement>();
+  const [isMenuOpen, setMenu] = useState(false);
   const { i18n, i18n: { language } } = useTranslation();
   const setLanguage = (value: string) => (event) => {
     event.preventDefault();
@@ -70,23 +71,31 @@ export const LangSwitcher: React.FC = () => {
   };
 
   const toggleDropdown = () => {
-    console.log(`isOpen`, isOpen);
-    setDropdown(!isOpen);
+    setMenu(!isMenuOpen);
   };
 
-  const currentLabel = langOptions.find(el => el.value === language).label;
+  const currentLabel = langOptions.find(lang => lang.value === language).label;
 
-  console.log(`langOptions.filter(el => el.value === language)`, langOptions.find(el => el.value === language));
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      const { current } = styledButton || {};
+      if (isMenuOpen && !current.contains(e.target)) {
+        setMenu(false)
+      }
+    }
+    document.addEventListener("mousedown", checkIfClickedOutside)
+    return () => document.removeEventListener("mousedown", checkIfClickedOutside);
+  }, [isMenuOpen])
 
   return (
     <StyledDropdown onClick={toggleDropdown}>
-      {isOpen ? (<StyledArrowDown size={16} />) : (<StyledArrowRight size={16} />)}
+      {isMenuOpen ? (<StyledArrowDown size={16} />) : (<StyledArrowRight size={16} />)}
       <StyledButton value={language} isActive>{currentLabel}</StyledButton>
       <StyledOptions>
-        {isOpen && langOptions
+        {isMenuOpen && langOptions
           .filter(({ value }) => value !== language)
           .map(({ value, label }) => (
-            <StyledButton key={value} onClick={setLanguage(value)} value={value}>
+            <StyledButton ref={styledButton} key={value} onClick={setLanguage(value)} value={value}>
               {label}
             </StyledButton>
           ))}

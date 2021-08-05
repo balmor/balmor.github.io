@@ -13,6 +13,7 @@ export const DefaultDarkTheme: StyledTheme = {
   textPrimary: palette.white,
   textSecondary: palette.offWhite,
   textThird: palette.lightBlue,
+  textFourth: palette.darkGray,
   buttonBg: palette.purple,
   buttonFg: palette.white,
   buttonBgHover: lighten(0.05, palette.purple),

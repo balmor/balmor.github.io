@@ -11,6 +11,7 @@ import { ThemeStore } from '../context/ThemeStore';
 import { Theme } from '../components/Theme';
 
 import { i18nConfig } from '../i18n';
+import { ToTop } from '../components/ToTop';
 
 i18n.use(LanguageDetector).use(initReactI18next).init(i18nConfig);
 
@@ -23,6 +24,7 @@ const IndexPage: React.FC = (): JSX.Element => {
         <Header />
         <Content />
         <Footer />
+        <ToTop />
       </Theme>
     </ThemeStore>
   );
