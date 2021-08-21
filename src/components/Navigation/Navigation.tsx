@@ -41,7 +41,7 @@ export const StyledLink = styled(Link)`
       bottom: 1.4rem;
       left: 0;
       width: 100%;
-      height: .4rem;
+      height: 0.4rem;
       background: ${({ theme }) => theme.textThird};
       -webkit-transform: scale3d(0, 1, 1);
       transform: scale3d(0, 1, 1);
@@ -83,21 +83,40 @@ export const linkProperties = {
   spy: true,
   smooth: 'easeOutQuint',
   offset: -100,
-}
+};
 
 type StyledNavigationProps = {
   className?: string;
-}
+};
 
-export const Navigation: React.FC<StyledNavigationProps> = ({ className = '' }): JSX.Element => {
-
+export const Navigation: React.FC<StyledNavigationProps> = ({
+  className = '',
+}): JSX.Element => {
   return (
     <StyledNavigation className={className}>
       <ul>
-        <li><StyledLink to="home" { ...linkProperties }><span><Translate i18nKey="home" /></span></StyledLink></li>
-        <li><StyledLink to="about" { ...linkProperties }><span><Translate i18nKey="about" /></span></StyledLink></li>
-        <li><StyledLink to="contact" { ...linkProperties }><span><Translate i18nKey="contact" /></span></StyledLink></li>
+        <li>
+          <StyledLink to="home" {...linkProperties}>
+            <span>
+              <Translate i18nKey="home" />
+            </span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="about" {...linkProperties}>
+            <span>
+              <Translate i18nKey="about" />
+            </span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="contact" {...linkProperties}>
+            <span>
+              <Translate i18nKey="contact" />
+            </span>
+          </StyledLink>
+        </li>
       </ul>
     </StyledNavigation>
-  )
+  );
 };
