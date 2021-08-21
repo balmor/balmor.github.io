@@ -1,3 +1,6 @@
+export const capitalize = (word: string): string =>
+  word.toLowerCase().replace(/\w/, (firstLetter) => firstLetter.toUpperCase());
+
 export enum FontFamilyTypes {
   ralewayLight = 'Raleway Light',
   ralewayRegular = 'Raleway Regular',

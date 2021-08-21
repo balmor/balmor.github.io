@@ -54,13 +54,11 @@ export const FormContact: React.FC = (): JSX.Element => {
       <StyledContactH2>Form contact</StyledContactH2>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <Field
-          label="Name"
           {...register('name', { required })}
           errors={errors}
           touchedFields={touchedFields}
         />
         <Field
-          label="Email"
           {...register('email', {
             required,
             pattern: emailRegex,
@@ -69,13 +67,11 @@ export const FormContact: React.FC = (): JSX.Element => {
           touchedFields={touchedFields}
         />
         <Field
-          label="Subject"
           {...register('subject')}
           errors={errors}
           touchedFields={touchedFields}
         />
         <Field
-          label="Message"
           {...register('message', { required })}
           type="textarea"
           errors={errors}

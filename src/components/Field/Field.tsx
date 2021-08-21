@@ -1,6 +1,7 @@
 import React from 'react';
 import { FieldErrors } from 'react-hook-form';
 import styled, { css } from 'styled-components';
+import { capitalize } from '../../utils';
 
 type DirtiedProps = {
   name?: Boolean;
@@ -10,8 +11,7 @@ type DirtiedProps = {
 };
 
 type FieldProps = {
-  name?: string;
-  label?: string;
+  name: string;
   type?: string;
   errors: FieldErrors;
   touchedFields?: DirtiedProps;
@@ -79,15 +79,15 @@ const StyledTextarea = styled.textarea<InputProps>`
 `;
 
 export const Field: React.FC<FieldProps> = ({
-  label,
   errors,
   type,
   touchedFields,
   ...textInputProps
-}) => {
+}):JSX.Element => {
   const { name } = textInputProps;
   const isError = !!errors[name];
   const isTouched = !!touchedFields[name];
+  const label = capitalize(name);
   const fieldProperties = {
     placeholder: label,
     isError,

@@ -25,8 +25,8 @@ yarn build
 ## TODO:
 
 - [x] light / dark theme
-- [x] add translation PL/EN
+- [ ] add translation PL/EN
 - [ ] update components to dark/light mode
 - [ ] rewrite to reactjs / typescript / gatsby
-- [ ] use react-hook-form for contact form
+- [x] use react-hook-form for contact form
 - [ ] add responsive mode for tablets and smartphones
