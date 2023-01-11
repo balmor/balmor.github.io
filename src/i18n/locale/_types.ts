@@ -10,7 +10,18 @@ export type General = {
   polish: string,
   english: string,
   aboutMe: string,
+  rights: string;
+  hello: string;
+  front: string;
+  location: string;
+  name: string;
+  known: string;
+  firstMeDescription: string;
+  secondMeDescription: string;
+  thirdMeDescription: string;
+  fourthMeDescription: string;
   getInTouch: string,
+  contactDesc: string,
   webDevelopment: string,
   webDevelopmentDescription: string,
   userInterface: string,
@@ -21,4 +32,6 @@ export type General = {
   ecommerceDescription: string,
   webAnalytics: string,
   webAnalyticsDescription: string,
+  e2e: string;
+  e2eDescription: string;
 };

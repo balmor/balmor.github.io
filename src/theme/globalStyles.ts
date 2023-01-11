@@ -1,9 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import { darken } from 'polished';
-import RalewayLightWoff from '../fonts/raleway/light/raleway-light-webfont.woff';
-import RalewayLightWoff2 from '../fonts/raleway/light/raleway-light-webfont.woff2';
-import RalewayRegularWoff from '../fonts/raleway/regular/raleway-regular-webfont.woff';
-import RalewayRegularWoff2 from '../fonts/raleway/regular/raleway-regular-webfont.woff2';
 import { FontFamilyTypes } from '../utils';
 import { normalize } from 'styled-normalize'
 
@@ -45,8 +41,9 @@ export const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.primary};
     color: ${({ theme }) => theme.textSecondary};
     scroll-behavior: smooth;
-    font-family: ${FontFamilyTypes.ralewayRegular}, Helvetica, Arial, sans-serif;
+    font-family: ${FontFamilyTypes.raleway}, Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
+    line-height: 2.4rem;
 
 
     scrollbar-base-color: white;
@@ -55,23 +52,5 @@ export const GlobalStyle = createGlobalStyle`
   }
   code {
     font-family: Consolas, 'Courier New', monospace;
-  }
-
-  @font-face {
-    font-family: 'Raleway light';
-    src: local('Raleway light'), local('Raleway light'),
-    url(${RalewayLightWoff2}) format('woff2'),
-    url(${RalewayLightWoff}) format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Raleway Regular';
-    src: local('Raleway Regular'), local('Raleway Regular'),
-    url(${RalewayRegularWoff2}) format('woff2'),
-    url(${RalewayRegularWoff}) format('woff');
-    font-weight: normal;
-    font-style: normal;
   }
 `;

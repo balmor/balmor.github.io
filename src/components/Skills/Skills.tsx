@@ -27,7 +27,7 @@ export const Skills: React.FC = (): JSX.Element => (
       <Circle percent={90} title="CSS3"><Css3 size={60} /></Circle>
       <Circle percent={80} title="JavaScript"><JavaScript size={60} /></Circle>
       <Circle percent={60} title="TypeScript"><Typescript size={56} /></Circle>
-      <Circle percent={90} title="ReactJS"><ReactLogo size={60} /></Circle>
+      <Circle percent={90} title="React"><ReactLogo size={60} /></Circle>
       <Circle percent={80} title="Redux"><Redux size={56} /></Circle>
       <Circle percent={50} title="NodeJS"><Node size={60} /></Circle>
       <Circle percent={80} title="Git"><Git size={60} /></Circle>

@@ -6,7 +6,7 @@ const StyledHeading = styled.h1`
   display: inline-block;
   color: ${({ color, theme }) => (color ? color : theme.textFourth)};
   font-size: 3.2rem;
-  margin: 2rem 0;
+  margin: 4rem 0 2rem;
 
   &:before {
     position: absolute;

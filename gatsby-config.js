@@ -49,7 +49,7 @@ module.exports = {
           failOnError: false, // if true, any lint error will fail the build, you may set true only in your prod config
           failOnWarning: false, // same as failOnError but for warnings
           plugins: [], // an array of plugins to load for ESLint
-          customOptions: {}, // see: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
+          customOptions: { "no-console": "error" }, // see: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
         },
       },
     },
@@ -81,5 +81,14 @@ module.exports = {
       },
       __key: 'pages',
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Raleway\:300,400,400i,700`,
+        ],
+        display: 'swap'
+      }
+    }
   ],
 };

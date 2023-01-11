@@ -56,7 +56,7 @@ FontFamilyTypes
 
 const StyledTitle = styled(Title)`
   h1 {
-    font-family: ${FontFamilyTypes.ralewayRegular}, Arial;
+    font-family: ${FontFamilyTypes.raleway}, Arial;
     font-weight: 700;
     font-size: 16px;
     color: #999;

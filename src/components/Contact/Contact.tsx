@@ -28,10 +28,7 @@ export const Contact: React.FC = (): JSX.Element => {
           <Translate i18nKey="getInTouch" />
         </Heading>
         <p>
-          I will be more than happy to answer any of your question or talk to
-          you. Please fill the below contact form and send your query or
-          thoughts. As soon as it hits my mailbox, I will answer your message to
-          the earliest. Thanks for your interest.
+          <Translate i18nKey='contactDesc' />
         </p>
         <StyledContactContent>
           <FormContact />

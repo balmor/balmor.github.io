@@ -4,12 +4,10 @@ import { FontFamilyTypes } from '../../utils';
 
 const StyledTitle = styled.div<StyledTitleProps>`
   h1 {
-    font-family: ${FontFamilyTypes.ralewayLight}, Arial;
     font-size: 24px;
-    font-weight: bold;
     letter-spacing: -1px;
     line-height: 28px;
-    font-weight: normal;
+    font-weight: 100;
     transition: 0.6s all ease;
     margin: 0;
   }
