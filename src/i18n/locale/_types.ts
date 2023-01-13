@@ -6,6 +6,7 @@ export type LangOptions = {
 export type General = {
   home: string,
   about: string,
+  work: string,
   contact: string,
   polish: string,
   english: string,
@@ -16,6 +17,8 @@ export type General = {
   location: string;
   name: string;
   known: string;
+  form: string;
+  quick: string;
   firstMeDescription: string;
   secondMeDescription: string;
   thirdMeDescription: string;

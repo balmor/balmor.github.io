@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledLocationMap = styled.path`
-  fill: #eee;
-  stroke: rgba(58, 185, 213, 0.9);
+  fill: ${({ theme }) => theme.buttonFg};
+  stroke: ${({ theme }) => theme.buttonBgHover};
   stroke-width: 2px;
 `;
 

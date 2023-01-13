@@ -1,5 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
+import { StyledTheme } from '../../theme/_types';
 import { FormContact } from '../FormContact';
 import { Heading } from '../Heading';
 import { QuickConnect } from '../QuickConnect';
@@ -21,10 +22,11 @@ const StyledContact = styled.section`
 `;
 
 export const Contact: React.FC = (): JSX.Element => {
+  const themeContext = useContext<StyledTheme>(ThemeContext);
   return (
     <StyledContact className="contact">
       <StyledContainer>
-        <Heading>
+        <Heading color={themeContext.textSecondary}>
           <Translate i18nKey="getInTouch" />
         </Heading>
         <p>

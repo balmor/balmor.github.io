@@ -43,7 +43,7 @@ const StyledCircle = styled.div<CircleProps>`
     box-sizing: content-box;
     content: ' ';
     border-radius: 50%;
-    background-color: #172737;
+    background-color: ${({ theme }) => theme.aboutBg};
     top: 0.5rem;
     left: 0.5rem;
     width: 11rem;

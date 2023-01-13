@@ -10,7 +10,7 @@ const StyledHeading = styled.h1`
 
   &:before {
     position: absolute;
-    bottom: -0.6rem;
+    bottom: -1rem;
     left: 0;
     content: "";
     display: block;

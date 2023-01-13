@@ -7,9 +7,9 @@ import { SocialBlock } from '../SocialBlock';
 
 
 const StyledFooter = styled.footer`
-  background: #eef2f4;
+  background: ${({ theme }) => theme.neutral};
   border-top: 2rem solid #7e7e7e;
-  color: ${({ theme }) => theme.textPrimary};
+  color: ${({ theme }) => theme.textSecondary};
 `;
 
 export const Footer: React.FC = (): JSX.Element => (

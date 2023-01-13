@@ -9,6 +9,7 @@ import skypeIcon from '@iconify/icons-simple-line-icons/social-skype';
 
 import { StyledContactH2 } from '../Contact';
 import { PolandSvg } from '../PolandSvg';
+import { Translate } from '../Translate';
 
 const icon = css`
   color: ${({ theme }) => theme.textThird};
@@ -37,7 +38,7 @@ const StyledConnect = styled.dl`
       transition: all 0.4s ease-out;
 
       &:hover {
-        color: black;
+        color: ${({ theme }) => theme.textHover};
       }
     }
 
@@ -86,7 +87,7 @@ const StyledSimpleIcon = styled(Icon)`
 
 export const QuickConnect: React.FC = (): JSX.Element => (
   <StyledQuickConnect>
-    <StyledContactH2>Quick connect</StyledContactH2>
+    <StyledContactH2><Translate i18nKey='quick' /></StyledContactH2>
     <StyledConnect>
       <dt>
         <StyledSimpleIcon icon={screenSmartphoneIcon} />

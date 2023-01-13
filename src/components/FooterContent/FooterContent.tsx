@@ -1,18 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import { Copyright } from '../Copyright';
 import { Logo } from '../Logo';
 import { StyledLink, Navigation } from '../Navigation';
 import { Title } from '../Title';
 import { FontFamilyTypes } from '../../utils';
+import { StyledTheme } from '../../theme/_types';
 
 const StyledContent = styled.section`
-  color: ${({ theme }) => theme.textPrimary};
+  color: ${({ theme }) => theme.textSecondary};
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid ${({ theme }) => theme.boxBorder};
 `;
 
 
@@ -25,7 +26,7 @@ const StyledLogoText = styled.div`
 const FooterNavigation = styled(Navigation)`
   ${StyledLink} {
     font-size: 1.4rem;
-    color: #999aa1;
+    color: ${({ theme }) => theme.textSecondary};
     padding: 0 1rem 0 0;
     height: auto;
     line-height: normal;
@@ -43,7 +44,7 @@ const FooterNavigation = styled(Navigation)`
     }
 
     &:hover {
-      color: black;
+      color: ${({ theme }) => theme.textHover};
     }
   }
 
@@ -52,28 +53,28 @@ const FooterNavigation = styled(Navigation)`
   }
 `;
 
-FontFamilyTypes
-
 const StyledTitle = styled(Title)`
   h1 {
     font-family: ${FontFamilyTypes.raleway}, Arial;
     font-weight: 700;
     font-size: 16px;
-    color: #999;
+    color: ${({ theme }) => theme.textPrimary};
     letter-spacing: .03em;
     transition: all 0.4s ease-out;
 
     &:hover {
-      color: black;
+      color: ${({ theme }) => theme.textHover};
     }
   }
 `;
 
 export const FooterContent: React.FC = (): JSX.Element => {
+  const themeContext = useContext<StyledTheme>(ThemeContext);
+
   return (
     <StyledContent>
       <StyledLogoText>
-        <Logo size="small" color="gray" background="#eef2f4"/>
+        <Logo size="small" color="gray" background={themeContext.neutral}/>
         <div>
           <StyledTitle />
           <FooterNavigation />

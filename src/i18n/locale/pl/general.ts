@@ -3,6 +3,7 @@ import { General } from '../_types';
 export const general: General = {
   home: 'start',
   about: 'o mnie',
+  work: 'prace',
   contact: 'kontakt',
   polish: 'polski',
   english: 'angielski',
@@ -12,6 +13,8 @@ export const general: General = {
   location: 'POŁUDNIOWA POLSKA',
   name: 'Hello, my name is',
   known: 'also known as',
+  form: 'Formularz kontaktowy',
+  quick: 'Szybki kontakt',
   firstMeDescription: `I’m a Regular Frontend Developer specializing in front end development.
   Experienced with all stages of the development cycle for dynamic web
   projects. Well-versed in numerous programming languages including

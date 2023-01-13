@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import iconSet from '../../selection.json';
+import iconSet from '../../icomoon.json';
 import IcomoonReact from 'icomoon-react';
 import { ThemeContext } from 'styled-components';
 

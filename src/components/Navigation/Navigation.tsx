@@ -51,7 +51,7 @@ export const StyledLink = styled(Link)`
   }
 
   &:hover {
-    color: black; // use theme color
+    color: ${({ theme }) => theme.textHover};
 
     span:before {
       background: ${({ theme }) => theme.textPrimary};
@@ -106,6 +106,13 @@ export const Navigation: React.FC<StyledNavigationProps> = ({
           <StyledLink to="about" {...linkProperties}>
             <span>
               <Translate i18nKey="about" />
+            </span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="work" {...linkProperties}>
+            <span>
+              <Translate i18nKey="work" />
             </span>
           </StyledLink>
         </li>

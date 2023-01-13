@@ -7,6 +7,7 @@ import { Title } from '../Title'
 import { Navigation } from '../Navigation/Navigation';
 import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from '../LangSwitcher';
+import { StyledTheme } from '../../theme/_types';
 
 const StyledHeader = styled.header`
   background: ${({ theme }) => theme.headerBg};
@@ -32,7 +33,7 @@ const StyledSwitcher = styled(StyledLogoText)`
 `;
 
 export const Header: React.FC = (): JSX.Element => {
-  const themeContext = useContext(ThemeContext);
+  const themeContext = useContext<StyledTheme>(ThemeContext);
 
   return (
     <StyledHeader>

@@ -7,7 +7,9 @@ export type StyledTheme = {
   primary: string;
   secondary: string;
   third: string;
+  fourth: string;
   headerBg: string;
+  aboutBg: string;
   neutral: string;
   boxBg: string;
   boxBorder: string;
@@ -15,6 +17,7 @@ export type StyledTheme = {
   textSecondary: string;
   textThird: string;
   textFourth: string;
+  textHover: string;
   buttonBg: string;
   buttonFg: string;
   buttonBgHover: string;

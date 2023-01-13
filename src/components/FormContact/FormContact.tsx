@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { StyledContactH2 } from '../Contact';
 import { Field } from '../Field';
 import { emailRegex } from '../../utils';
+import { Translate } from '../Translate';
 
 type Inputs = {
   name: string;
@@ -25,7 +26,7 @@ const StyledSendButton = styled.button`
   background: none;
   border: none;
   font-size: 22px;
-  color: $lightBlue-color;
+  color: ${({ theme }) => theme.buttonBg};
   height: 40px;
   line-height: 40px;
   border-radius: 3px;
@@ -33,7 +34,7 @@ const StyledSendButton = styled.button`
 
   &:hover {
     color: white;
-    background: #3ab9d5;
+    background: ${({ theme }) => theme.buttonBgHover};
   }
 `;
 
@@ -51,7 +52,7 @@ export const FormContact: React.FC = (): JSX.Element => {
 
   return (
     <StyledFormContact>
-      <StyledContactH2>Form contact</StyledContactH2>
+      <StyledContactH2><Translate i18nKey='form' /></StyledContactH2>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <Field
           {...register('name', { required })}

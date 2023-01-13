@@ -34,25 +34,31 @@ const StyledLabel = styled.label`
   transition: all 0.4s ease;
 `;
 
-const fieldForm = css<FieldErrors>`
+const fieldForm = css`
   height: 3rem;
   line-height: 3rem;
   border: none;
   border-bottom-width: 0.2rem;
-  border-bottom-color: ${({ isError }) => (isError ? '#bf1313' : '#8ed7e7')};
-  border-bottom-style: ${({ isError, isTouched }) =>
+  border-bottom-color: ${({ isError }: { isError: boolean }) => (isError ? '#bf1313' : '#8ed7e7')};
+  border-bottom-style: ${({ isError, isTouched }: { isError: boolean, isTouched: boolean }) =>
     isTouched || isError ? 'solid' : 'dotted'};
   width: 100%;
   max-width: 50rem;
   outline: none;
   padding-right: 7rem;
   box-sizing: border-box;
+  background: ${({ theme }) => theme.fourth};
+  color: ${({ theme }) => theme.inputLabel};
+
+  ::placeholder {
+    color: ${({ theme }) => theme.boxBg};
+  }
 
   &:focus {
     border-bottom-style: solid;
 
     ::placeholder {
-      color: white;
+      color: ${({ theme }) => theme.fourth};
     }
   }
 
@@ -69,11 +75,11 @@ const StyledFormField = styled.div`
 `;
 
 // type needs improvement
-const StyledInput = styled.input<InputProps>`
+const StyledInput = styled.input`
   ${fieldForm}
 `;
 
-const StyledTextarea = styled.textarea<InputProps>`
+const StyledTextarea = styled.textarea`
   ${fieldForm}
   height: 7rem;
 `;
@@ -81,14 +87,20 @@ const StyledTextarea = styled.textarea<InputProps>`
 export const Field: React.FC<FieldProps> = ({
   errors,
   type,
-  touchedFields,
+  touchedFields = {},
   ...textInputProps
 }):JSX.Element => {
   const { name } = textInputProps;
   const isError = !!errors[name];
   const isTouched = !!touchedFields[name];
   const label = capitalize(name);
-  const fieldProperties = {
+  const fieldProperties: {
+    name: string;
+    children?: React.ReactNode;
+    placeholder: string;
+    isError: boolean;
+    isTouched: boolean;
+    } = {
     placeholder: label,
     isError,
     isTouched,
