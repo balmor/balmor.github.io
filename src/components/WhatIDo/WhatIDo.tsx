@@ -28,9 +28,9 @@ const StyledLi = styled.li`
 export const WhatIDo: React.FC = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const renderWhatIDo = () => whatIDoList.map(({ icon, title, description }) => {
+  const renderWhatIDo = () => whatIDoList.map(({ icon, title, description }, index) => {
       return (
-        <StyledLi>
+        <StyledLi key={index}>
           <LineIcon icon={icon}/>
           <StyledH3>{t(title)}</StyledH3>
           <p>{t(description)}</p>

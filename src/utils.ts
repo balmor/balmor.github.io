@@ -5,4 +5,4 @@ export enum FontFamilyTypes {
   raleway = 'Raleway',
 }
 
-export const emailRegex = /^[a-zA-Z]+[^@]*@[a-zA-Z]+[^@]*\.[a-zA-Z]{2,}[^@]*$/;
+export const emailRegex: RegExp = /^[a-zA-Z]+[^@]*@[a-zA-Z]+[^@]*\.[a-zA-Z]{2,}[^@]*$/;

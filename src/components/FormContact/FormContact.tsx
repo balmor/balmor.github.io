@@ -6,7 +6,7 @@ import { Field } from '../Field';
 import { emailRegex } from '../../utils';
 import { Translate } from '../Translate';
 
-type Inputs = {
+export type Inputs = {
   name: string;
   email: string;
   subject?: string;
@@ -40,45 +40,25 @@ const StyledSendButton = styled.button`
 
 export const FormContact: React.FC = (): JSX.Element => {
   const {
-    register,
+    control,
     handleSubmit,
-    watch,
-    formState: { errors, touchedFields },
   } = useForm<Inputs>({ mode: 'onBlur', reValidateMode: 'onBlur' });
   const onSubmit: SubmitHandler<Inputs> = (data) =>
     console.log('--> Submit form', data);
 
-  const required = true;
-
   return (
     <StyledFormContact>
-      <StyledContactH2><Translate i18nKey='form' /></StyledContactH2>
+      <StyledContactH2>
+        <Translate i18nKey="form" />
+      </StyledContactH2>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <Field
-          {...register('name', { required })}
-          errors={errors}
-          touchedFields={touchedFields}
-        />
-        <Field
-          {...register('email', {
-            required,
-            pattern: emailRegex,
-          })}
-          errors={errors}
-          touchedFields={touchedFields}
-        />
-        <Field
-          {...register('subject')}
-          errors={errors}
-          touchedFields={touchedFields}
-        />
-        <Field
-          {...register('message', { required })}
-          type="textarea"
-          errors={errors}
-          touchedFields={touchedFields}
-        />
-        <StyledSendButton type="submit">Send</StyledSendButton>
+        <Field control={control} name={'name'} label={'Name'} required />
+        <Field control={control} name={'email'} label={'Email'} pattern={emailRegex} required />
+        <Field control={control} name={'subject'} label={'Subject'} />
+        <Field control={control} name={'message'} label={'Message'} required type="textarea" />
+        <StyledSendButton type="submit">
+          <Translate i18nKey="send" />
+        </StyledSendButton>
       </StyledForm>
     </StyledFormContact>
   );

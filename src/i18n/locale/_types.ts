@@ -19,6 +19,7 @@ export type General = {
   known: string;
   form: string;
   quick: string;
+  send: string;
   firstMeDescription: string;
   secondMeDescription: string;
   thirdMeDescription: string;

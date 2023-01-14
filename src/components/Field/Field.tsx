@@ -1,26 +1,27 @@
 import React from 'react';
-import { FieldErrors } from 'react-hook-form';
+import { Control, Controller } from 'react-hook-form';
 import styled, { css } from 'styled-components';
-import { capitalize } from '../../utils';
+import { Inputs } from '../FormContact';
 
-type DirtiedProps = {
-  name?: Boolean;
-  email?: Boolean;
-  subject?: Boolean;
-  message?: Boolean;
-};
+type ErrorField = {
+  isError: Boolean;
+}
 
-type FieldProps = {
-  name: string;
-  type?: string;
-  errors: FieldErrors;
-  touchedFields?: DirtiedProps;
-};
+type TouchedField = {
+  isTouched: Boolean;
+} & ErrorField;
 
 type InputProps = {
-  isError: Boolean;
-  isTouched: Boolean;
   placeholder: string;
+} & TouchedField;
+
+type FieldProps = {
+  control: Control<Inputs>;
+  name:   'name' | 'email' | 'subject' | 'message';
+  label: string;
+  type?: string;
+  required?: boolean;
+  pattern?: RegExp | undefined;
 };
 
 const StyledLabel = styled.label`
@@ -39,9 +40,12 @@ const fieldForm = css`
   line-height: 3rem;
   border: none;
   border-bottom-width: 0.2rem;
-  border-bottom-color: ${({ isError }: { isError: boolean }) => (isError ? '#bf1313' : '#8ed7e7')};
-  border-bottom-style: ${({ isError, isTouched }: { isError: boolean, isTouched: boolean }) =>
-    isTouched || isError ? 'solid' : 'dotted'};
+  border-bottom-color: ${({ isError }: ErrorField) =>
+    isError ? '#bf1313' : '#8ed7e7'};
+  border-bottom-style: ${({
+    isError,
+    isTouched,
+  }: TouchedField) => (isTouched || isError ? 'solid' : 'dotted')};
   width: 100%;
   max-width: 50rem;
   outline: none;
@@ -74,47 +78,49 @@ const StyledFormField = styled.div`
   overflow: hidden;
 `;
 
-// type needs improvement
-const StyledInput = styled.input`
+const StyledInput = styled.input<InputProps>`
   ${fieldForm}
 `;
 
-const StyledTextarea = styled.textarea`
+const StyledTextarea = styled.textarea<InputProps>`
   ${fieldForm}
   height: 7rem;
 `;
 
-export const Field: React.FC<FieldProps> = ({
-  errors,
-  type,
-  touchedFields = {},
-  ...textInputProps
-}):JSX.Element => {
-  const { name } = textInputProps;
-  const isError = !!errors[name];
-  const isTouched = !!touchedFields[name];
-  const label = capitalize(name);
-  const fieldProperties: {
-    name: string;
-    children?: React.ReactNode;
-    placeholder: string;
-    isError: boolean;
-    isTouched: boolean;
-    } = {
-    placeholder: label,
-    isError,
-    isTouched,
-    ...textInputProps,
-  };
-
+export const Field: React.FC<FieldProps> = ({ control, name, label, type = '', required = false, pattern }) => {
   return (
-    <StyledFormField>
-      {type === 'textarea' ? (
-        <StyledTextarea {...fieldProperties} />
-      ) : (
-        <StyledInput {...fieldProperties} />
-      )}
-      <StyledLabel>{label}</StyledLabel>
-    </StyledFormField>
+    <Controller
+      name={name}
+      control={control}
+      rules={{ required, pattern }}
+      render={({
+        field,
+        field: { value = '' },
+        fieldState: { error = false, isTouched = false } = {},
+      }) => {
+        return (
+          <StyledFormField>
+            {type === 'textarea' ? (
+              <StyledTextarea
+                {...field}
+                value={value}
+                isError={!!error}
+                isTouched={isTouched}
+                placeholder={label}
+              />
+            ) : (
+              <StyledInput
+                {...field}
+                value={value}
+                isError={!!error}
+                isTouched={isTouched}
+                placeholder={label}
+              />
+            )}
+            <StyledLabel>{label}</StyledLabel>
+          </StyledFormField>
+        );
+      }}
+    />
   );
 };

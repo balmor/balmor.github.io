@@ -15,6 +15,7 @@ export const general: General = {
   known: 'also known as',
   form: 'Formularz kontaktowy',
   quick: 'Szybki kontakt',
+  send: 'Wyślij',
   firstMeDescription: `I’m a Regular Frontend Developer specializing in front end development.
   Experienced with all stages of the development cycle for dynamic web
   projects. Well-versed in numerous programming languages including
