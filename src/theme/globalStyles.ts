@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { darken } from 'polished';
 import { FontFamilyTypes } from '../utils';
 import { normalize } from 'styled-normalize'
-
+import breakpoint, {map} from 'styled-components-breakpoint';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -35,15 +35,16 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
     background: ${({ theme }) => theme.primary};
     color: ${({ theme }) => theme.textSecondary};
     scroll-behavior: smooth;
     font-family: ${FontFamilyTypes.raleway}, Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
     line-height: 2.4rem;
+
+    ${breakpoint('mobile', 'tablet')`
+      font-size: 1.4rem;
+    `}
 
 
     scrollbar-base-color: white;

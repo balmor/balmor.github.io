@@ -6,6 +6,7 @@ import { StyledLink, Navigation } from '../Navigation';
 import { Title } from '../Title';
 import { FontFamilyTypes } from '../../utils';
 import { StyledTheme } from '../../theme/_types';
+import breakpoint from 'styled-components-breakpoint';
 
 const StyledContent = styled.section`
   color: ${({ theme }) => theme.textSecondary};
@@ -51,6 +52,10 @@ const FooterNavigation = styled(Navigation)`
   li:last-child ${StyledLink} span:after {
       display: none;
   }
+
+  ${breakpoint('mobile', 'tablet')`
+    display: none;
+  `}
 `;
 
 const StyledTitle = styled(Title)`
@@ -58,7 +63,7 @@ const StyledTitle = styled(Title)`
     font-family: ${FontFamilyTypes.raleway}, Arial;
     font-weight: 700;
     font-size: 16px;
-    color: ${({ theme }) => theme.textPrimary};
+    color: ${({ theme }) => theme.textSecondary};
     letter-spacing: .03em;
     transition: all 0.4s ease-out;
 

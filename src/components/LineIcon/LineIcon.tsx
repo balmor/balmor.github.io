@@ -18,6 +18,11 @@ export const LineIcon: React.FC<LineIconProps> = ({
   const themeContext = useContext(ThemeContext);
 
   return (
-    <IcomoonReact iconSet={iconSet} color={color ? color: themeContext.textThird} size={size} icon={icon} />
+    <IcomoonReact
+      iconSet={iconSet}
+      color={color ? color : themeContext.textThird}
+      size={size}
+      icon={icon}
+    />
   );
 };

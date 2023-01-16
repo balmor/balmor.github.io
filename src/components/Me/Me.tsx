@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontFamilyTypes } from '../../utils';
 import { Translate } from '../Translate';
 
 export const StyledH3 = styled.h3`

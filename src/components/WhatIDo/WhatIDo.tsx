@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LineIcon } from '../LineIcon';
 import { StyledH3 } from '../Me';
 import { whatIDoList } from './whatIDoList';
+import breakpoint from 'styled-components-breakpoint';
 
 
 export const StyledH2 = styled.h2`
@@ -17,6 +18,11 @@ const StyledUl = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
+
+  ${breakpoint('mobile', 'tablet')`
+    flex-direction: column;
+    align-items: center;
+  `}
 `;
 
 const StyledLi = styled.li`

@@ -7,7 +7,7 @@ import { ThemeMode } from '../../theme/_types';
 
 type ThemeProps = { children: React.ReactNode };
 
-export const Theme: React.FC<ThemeProps> = ({ children }): JSX.Element => {
+export const Theme: React.FC<ThemeProps> = ({ children }) => {
   const { theme } = useContext(ThemeContext);
 
   return (

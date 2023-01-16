@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import { Heading } from '../Heading';
 import { StyledContainer } from '../StyledContainer';
 import { Me } from '../Me';
@@ -14,7 +14,7 @@ const StyledAbout = styled.section`
 `;
 
 
-export const About: React.FC = (): JSX.Element => {
+export const About: React.FC = () => {
   return (
     <StyledAbout className="about">
       <StyledContainer>

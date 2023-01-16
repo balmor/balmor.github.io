@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import favicon16 from '../../images/favicon-16x16.png'
 import favicon32 from '../../images/favicon-32x32.png'
 
-export const Seo: React.FC = (): JSX.Element => (
+export const Seo: React.FC = () => (
   <Helmet>
     <html lang="pl" />
     <title>Damian Duda</title>

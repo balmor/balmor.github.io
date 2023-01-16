@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontFamilyTypes } from '../../utils';
+import breakpoint from 'styled-components-breakpoint';
 
 const StyledTitle = styled.div<StyledTitleProps>`
   h1 {
@@ -20,6 +20,10 @@ const StyledTitle = styled.div<StyledTitleProps>`
     font-weight: normal;
     text-align: center;
     margin: 0;
+
+    ${breakpoint('mobile', 'tablet')`
+      display: none;
+    `}
   }
 
   &:hover {

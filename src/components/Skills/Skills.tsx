@@ -12,24 +12,34 @@ import { Redux } from '@styled-icons/simple-icons/Redux';
 import { Git } from '@styled-icons/boxicons-logos/Git';
 
 const StyledSkills = styled.div`
-  width: 90rem;
+  max-width: 90rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto 3rem;
+
+  @media (max-width: 35rem) {
+    display: none;
+  }
 `;
+
+const StyledH2Skill = styled(StyledH2)`
+  @media (max-width: 35rem) {
+    display: none;
+  }
+`
 
 export const Skills: React.FC = (): JSX.Element => (
   <>
-    <StyledH2>Skills</StyledH2>
+    <StyledH2Skill>Skills</StyledH2Skill>
     <StyledSkills>
-      <Circle percent={90} title="HTML5"><Html5 size={60} /></Circle>
-      <Circle percent={90} title="CSS3"><Css3 size={60} /></Circle>
-      <Circle percent={80} title="JavaScript"><JavaScript size={60} /></Circle>
+      <Circle percent={90} title="JavaScript"><JavaScript size={60} /></Circle>
       <Circle percent={60} title="TypeScript"><Typescript size={56} /></Circle>
       <Circle percent={90} title="React"><ReactLogo size={60} /></Circle>
       <Circle percent={80} title="Redux"><Redux size={56} /></Circle>
-      <Circle percent={50} title="NodeJS"><Node size={60} /></Circle>
+      <Circle percent={90} title="HTML5"><Html5 size={60} /></Circle>
+      <Circle percent={90} title="CSS3"><Css3 size={60} /></Circle>
+      <Circle percent={50} title="Node"><Node size={60} /></Circle>
       <Circle percent={80} title="Git"><Git size={60} /></Circle>
     </StyledSkills>
   </>

@@ -1,19 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { Translate } from '../Translate/Translate';
+import breakpoint from 'styled-components-breakpoint';
 
-export const StyledNavigation = styled.nav<StyledNavigationProps>`
-  ul {
+const StyledMenu = styled.div<{ isOpenMenu: boolean }>`
+  display: none;
+  background: ${({ theme }) => theme.headerBg};
+  border: 1px solid ${({ theme }) => theme.textThird};
+  border-bottom: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  ${breakpoint('mobile', 'tablet')`
+    display: block;
+    position: absolute;
+    rigth: 0;
+    top: 1;
+
+    div {
+      width: 35px;
+      height: 5px;
+      background-color: ${({ isOpenMenu, theme }: any) => isOpenMenu ? theme.textPrimary : theme.textThird};
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  `}
+`;
+
+const StyledUl = styled.ul<{ isOpenMenu: boolean }>`
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: ${({ theme }) => theme.headerBg};
+
+  li {
     display: inline-block;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  }
+
+  ${breakpoint('mobile', 'tablet')`
+    display: ${({ isOpenMenu }: any) => isOpenMenu ? 'block' : 'none'};
+    position: absolute;
+    border: 1px solid #ddd;
+    top: 5rem;
+    left: 0;
 
     li {
-      display: inline-block;
+      display: block;
     }
-  }
+  `}
+`
+
+export const StyledNavigation = styled.nav<StyledNavigationProps>`
+  ${breakpoint('mobile', 'tablet')`
+    position: relative;
+  `}
+
+  ${StyledUl}
+  ${StyledMenu}
 `;
 
 export const StyledLink = styled(Link)`
@@ -24,11 +69,24 @@ export const StyledLink = styled(Link)`
   user-select: none;
 
   margin: 0;
-  padding: 0 3rem;
+  padding: 0 2rem;
   text-align: center;
   color: ${({ theme }) => theme.textSecondary};
 
   transition: 0.3s all ease;
+
+  ${breakpoint('mobile', 'tablet')`
+    height: 4rem;
+    line-height: 4rem;
+
+    span:before, &:hover span:before, &.active span:before {
+      display: none;
+    }
+
+    &.active {
+      background: ${({ theme }) => theme.boxBorder};
+    }
+  `}
 
   span {
     position: relative;
@@ -87,14 +145,19 @@ export const linkProperties = {
 
 type StyledNavigationProps = {
   className?: string;
+  isOpenMenu?: boolean;
 };
 
 export const Navigation: React.FC<StyledNavigationProps> = ({
   className = '',
 }): JSX.Element => {
+  const [isOpenMenu, setOpenMenu] = useState<boolean>(false);
+
+  const handleNav = () => setOpenMenu(prevState => !prevState);
+
   return (
-    <StyledNavigation className={className}>
-      <ul>
+    <StyledNavigation isOpenMenu={isOpenMenu} className={className}>
+      <StyledUl isOpenMenu={isOpenMenu}>
         <li>
           <StyledLink to="home" {...linkProperties}>
             <span>
@@ -123,7 +186,12 @@ export const Navigation: React.FC<StyledNavigationProps> = ({
             </span>
           </StyledLink>
         </li>
-      </ul>
+      </StyledUl>
+      <StyledMenu isOpenMenu={isOpenMenu} onClick={handleNav}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </StyledMenu>
     </StyledNavigation>
   );
 };

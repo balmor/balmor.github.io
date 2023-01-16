@@ -8,6 +8,7 @@ import { Navigation } from '../Navigation/Navigation';
 import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from '../LangSwitcher';
 import { StyledTheme } from '../../theme/_types';
+import breakpoint from 'styled-components-breakpoint';
 
 const StyledHeader = styled.header`
   background: ${({ theme }) => theme.headerBg};
@@ -28,8 +29,12 @@ const StyledLogoText = styled.div`
   padding: 0 1rem;
 `;
 
-const StyledSwitcher = styled(StyledLogoText)`
+const StyledSwitcher = styled.div`
   margin: 0 1rem;
+
+  ${breakpoint('mobile', 'tablet')`
+    align-self: normal;
+  `}
 `;
 
 export const Header: React.FC = (): JSX.Element => {
