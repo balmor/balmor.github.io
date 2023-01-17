@@ -25,6 +25,10 @@ const StyledLogoText = styled.div`
 `;
 
 const FooterNavigation = styled(Navigation)`
+  ul {
+    background: transparent;
+  }
+
   ${StyledLink} {
     font-size: 1.4rem;
     color: ${({ theme }) => theme.textSecondary};
