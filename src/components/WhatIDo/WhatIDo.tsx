@@ -8,6 +8,7 @@ import breakpoint from 'styled-components-breakpoint';
 
 
 export const StyledH2 = styled.h2`
+  margin-top: 4rem;
   color: #e6e5e5;
 `;
 
@@ -29,17 +30,22 @@ const StyledLi = styled.li`
   text-align: center;
   max-width: 34rem;
   padding: 1rem;
+  width: 30rem;
+  margin-bottom: 3rem;
+
+  ${breakpoint('mobile', 'tablet')`
+    width: 20rem;
+  `}
 `;
 
 export const WhatIDo: React.FC = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const renderWhatIDo = () => whatIDoList.map(({ icon, title, description }, index) => {
+  const renderWhatIDo = () => whatIDoList.map(({ icon, title }, index) => {
       return (
         <StyledLi key={index}>
           <LineIcon icon={icon}/>
           <StyledH3>{t(title)}</StyledH3>
-          <p>{t(description)}</p>
         </StyledLi>
       )
     });

@@ -20,6 +20,10 @@ export type General = {
   form: string;
   quick: string;
   send: string;
+  inputName: string;
+  email: string;
+  subject: string;
+  message: string;
   firstMeDescription: string;
   secondMeDescription: string;
   thirdMeDescription: string;

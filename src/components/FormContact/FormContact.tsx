@@ -5,6 +5,7 @@ import { StyledContactH2 } from '../Contact';
 import { Field } from '../Field';
 import { emailRegex } from '../../utils';
 import { Translate } from '../Translate';
+import { useTranslation } from 'react-i18next';
 
 export type Inputs = {
   name: string;
@@ -39,6 +40,7 @@ const StyledSendButton = styled.button`
 `;
 
 export const FormContact: React.FC = (): JSX.Element => {
+  const { t } = useTranslation();
   const {
     control,
     handleSubmit,
@@ -52,10 +54,10 @@ export const FormContact: React.FC = (): JSX.Element => {
         <Translate i18nKey="form" />
       </StyledContactH2>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <Field control={control} name={'name'} label={'Name'} required />
-        <Field control={control} name={'email'} label={'Email'} pattern={emailRegex} required />
-        <Field control={control} name={'subject'} label={'Subject'} />
-        <Field control={control} name={'message'} label={'Message'} required type="textarea" />
+        <Field control={control} name={'name'} label={t('inputName')} required />
+        <Field control={control} name={'email'} label={t('email')} pattern={emailRegex} required />
+        <Field control={control} name={'subject'} label={t('subject')} />
+        <Field control={control} name={'message'} label={t('message')} required type="textarea" />
         <StyledSendButton type="submit">
           <Translate i18nKey="send" />
         </StyledSendButton>
