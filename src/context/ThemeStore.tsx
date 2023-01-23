@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeMode } from '../theme/_types';
+import { isBrowser } from '../utils';
 
 export const LS_THEME_KEY = 'theme';
 
@@ -9,7 +10,7 @@ interface ThemeContextProps {
 }
 
 export const getSavedMode = (): ThemeMode =>
-  window.localStorage.getItem(LS_THEME_KEY) === ThemeMode.Dark ? ThemeMode.Dark : ThemeMode.Light;
+  isBrowser && window?.localStorage?.getItem(LS_THEME_KEY) === ThemeMode.Dark ? ThemeMode.Dark : ThemeMode.Light;
 
 const ThemeContext = React.createContext<ThemeContextProps>({} as ThemeContextProps);
 
