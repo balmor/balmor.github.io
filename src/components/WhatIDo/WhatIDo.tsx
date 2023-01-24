@@ -4,12 +4,16 @@ import { useTranslation } from 'react-i18next';
 import { LineIcon } from '../LineIcon';
 import { StyledH3 } from '../Me';
 import { whatIDoList } from './whatIDoList';
-import breakpoint from 'styled-components-breakpoint';
+import { breakpoint } from '../../utils';
 
 
 export const StyledH2 = styled.h2`
   margin-top: 4rem;
   color: #e6e5e5;
+
+  ${breakpoint('xs', 'md')`
+    display: none;
+  `}
 `;
 
 const StyledUl = styled.ul`
@@ -20,7 +24,8 @@ const StyledUl = styled.ul`
   padding: 0;
   list-style: none;
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
+    display: none;
     flex-direction: column;
     align-items: center;
   `}
@@ -33,7 +38,7 @@ const StyledLi = styled.li`
   width: 30rem;
   margin-bottom: 3rem;
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     width: 20rem;
   `}
 `;

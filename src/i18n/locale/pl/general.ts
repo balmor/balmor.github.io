@@ -11,8 +11,8 @@ export const general: General = {
   hello: 'Witam, jestem Damian Duda',
   front: 'Frontend Developer',
   location: 'POŁUDNIOWA POLSKA',
-  name: 'Hello, my name is',
-  known: 'also known as',
+  name: 'Witam, nazywam się',
+  known: 'znany w internecie jako',
   form: 'Formularz kontaktowy',
   quick: 'Szybki kontakt',
   send: 'Wyślij',
@@ -24,7 +24,7 @@ export const general: General = {
   Doświadczony we wszystkich etapach cyklu tworzenia dynamicznych projektów internetowych.`,
   secondMeDescription: `Tworzę, rozwijam i utrzymuję strony internetowe, które spełniają standardy sieciowe i najlepsze praktyki.`,
   thirdMeDescription: `Mój proces budowania frontendu obejmuje użycie narzędzi takich jak React, Redux, Webpack i NPM w celu przyspieszenia rozwoju.`,
-  fourthMeDescription: `Mam praktyczną wiedzę na temat popularnych frameworków UI, takich jak Material UI / Bootstrap przy użyciu Styled Components
+  fourthMeDescription: `Posiadam praktyczną wiedzę na temat popularnych frameworków UI, takich jak Material UI / Bootstrap przy użyciu Styled Components
   oraz posiadam więdze na temat zarządzania wersjami projektu i pracy w zespołach Scrum, Kanban.
   Dokonuję przeglądów kodu, aby zidentyfikować problemy, zanim przełożą się one na dług techniczny.`,
   aboutMe: 'o mnie',

@@ -17,21 +17,12 @@ const StyledSkills = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto 3rem;
-
-  @media (max-width: 35rem) {
-    display: none;
-  }
+  align-items: center;
 `;
-
-const StyledH2Skill = styled(StyledH2)`
-  @media (max-width: 35rem) {
-    display: none;
-  }
-`
 
 export const Skills: React.FC = (): JSX.Element => (
   <>
-    <StyledH2Skill>Skills</StyledH2Skill>
+    <StyledH2>Skills</StyledH2>
     <StyledSkills>
       <Circle percent={90} title="JavaScript"><JavaScript size={60} /></Circle>
       <Circle percent={60} title="TypeScript"><Typescript size={56} /></Circle>

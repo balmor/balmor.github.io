@@ -6,8 +6,9 @@ import { Translate } from '../Translate';
 import { lighten } from 'polished';
 import movie from './../../images/movie.png';
 import exchange from './../../images/exchange.png';
-import { breakpoint } from 'styled-components-breakpoint';
 import { LineIcon } from '../LineIcon';
+import { Github } from '@styled-icons/fa-brands/Github';
+import { breakpoint } from '../../utils';
 
 const StyledWork = styled.section`
   background: ${({ theme }) => lighten(0.1, theme.aboutBg)};
@@ -19,10 +20,7 @@ const StyledExamples = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-
-  ${breakpoint('mobile', 'tablet')`
-    flex-direction: column;
-  `}
+  flex-wrap: wrap;
 `;
 
 const StyledDescription = styled.p`
@@ -56,13 +54,13 @@ const StyledImage = css`
   &:hover {
     &:before {
       position: absolute;
-      content: "";
+      content: '';
       display: block;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.8);
       z-index: 2;
     }
 
@@ -71,7 +69,7 @@ const StyledImage = css`
     }
   }
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     width: 30rem;
     height: 18rem;
   `}
@@ -89,24 +87,60 @@ const StyledMovie = styled.a`
   background-image: url(${movie});
 `;
 
+const ProjectTitle = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: white;
+  }
+
+  a:hover {
+    color: #999;
+  }
+`;
+
 export const Work: React.FC = (): JSX.Element => {
   return (
     <StyledWork className="work">
       <StyledContainer>
-        <Heading color="#e6e5e5"><Translate i18nKey="work" /></Heading>
+        <Heading color="#e6e5e5">
+          <Translate i18nKey="work" />
+        </Heading>
         <StyledExamples>
           <div>
-            <h3>Exchange Calc</h3>
+            <ProjectTitle>
+              <h3>Exchange Calc</h3>
+              <a href="https://github.com/balmor/exchange-rate">
+                <Github size={24} />
+              </a>
+            </ProjectTitle>
             <StyledExchangeCalc href="https://balmor.github.io/exchange-rate/">
-              <StyledDescription>typescript / react / react-query / styled-components / Material UI / Webpack</StyledDescription>
-              <StyledIcon><LineIcon icon="attachment" size={50} /></StyledIcon>
+              <StyledDescription>
+                typescript / react / react-query / styled-components / Material
+                UI / Webpack
+              </StyledDescription>
+              <StyledIcon>
+                <LineIcon icon="attachment" size={50} />
+              </StyledIcon>
             </StyledExchangeCalc>
           </div>
           <div>
-            <h3>Movie</h3>
+            <ProjectTitle>
+              <h3>Movie</h3>{' '}
+              <a href="https://github.com/balmor/movie_db">
+                <Github size={24} />
+              </a>
+            </ProjectTitle>
             <StyledMovie href="https://balmor.github.io/movie_db">
-              <StyledDescription>typescript / react / styled-components / Webpack</StyledDescription>
-              <StyledIcon><LineIcon icon="attachment" size={50} /></StyledIcon>
+              <StyledDescription>
+                typescript / react / styled-components / Webpack
+              </StyledDescription>
+              <StyledIcon>
+                <LineIcon icon="attachment" size={50} />
+              </StyledIcon>
             </StyledMovie>
           </div>
         </StyledExamples>

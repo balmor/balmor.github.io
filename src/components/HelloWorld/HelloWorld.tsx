@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
+import { breakpoint } from '../../utils';
 import { Translate } from '../Translate';
 
 const paragraph = css`
@@ -10,7 +10,7 @@ const paragraph = css`
   text-align: center;
   line-height: 7rem;
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     font-size: 2rem;
     line-height: 4rem;
   `}
@@ -23,7 +23,7 @@ const StyledHelloWorld = styled.div`
   align-self: center;
   padding: 10rem 0;
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     padding: 5rem 0;
   `}
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 import cloud from '../../videos/cloud.webm';
+import cloudImg from '../../images/cloud.png';
 import { HelloWorld } from '../HelloWorld';
 
 const StyledHome = styled.section`
@@ -13,7 +13,7 @@ const StyledHome = styled.section`
   padding-top: 100px;
 
   &:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     left: 0;
@@ -29,7 +29,7 @@ type SourceProps = {
   onloadend?: () => void;
   src: string;
   type: string;
-}
+};
 
 const StyledSource = styled.source<SourceProps>``;
 
@@ -48,7 +48,18 @@ const StyledClouds = styled.video`
 export const Home: React.FC = (): JSX.Element => {
   return (
     <StyledHome className="home">
-      <StyledClouds loop autoPlay muted >
+      <StyledClouds
+        loop
+        autoPlay
+        poster={cloudImg}
+        muted
+        onLoadStart={() => {
+          console.log('onLoadStart');
+        }}
+        onLoadedData={() => {
+          console.log('onLoadedData');
+        }}
+      >
         <StyledSource src={cloud} type="video/webm" />
       </StyledClouds>
       <HelloWorld />

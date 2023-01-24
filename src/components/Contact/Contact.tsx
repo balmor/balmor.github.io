@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 import { StyledTheme } from '../../theme/_types';
+import { breakpoint } from '../../utils';
 import { FormContact } from '../FormContact';
 import { Heading } from '../Heading';
 import { QuickConnect } from '../QuickConnect';
@@ -16,7 +16,7 @@ export const StyledContactH2 = styled.h2`
 const StyledContactContent = styled.section`
   display: flex;
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     flex-direction: column;
     align-items: center;
   `}
@@ -26,7 +26,7 @@ const StyledContact = styled.section`
   background: ${({ theme }) => theme.headerBg};
   height: 70rem;
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     height: auto;
   `}
 `;

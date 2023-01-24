@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { Translate } from '../Translate/Translate';
-import breakpoint from 'styled-components-breakpoint';
+import { breakpoint } from '../../utils';
 
 const StyledMenu = styled.div<{ isOpenMenu: boolean }>`
   display: none;
@@ -12,11 +12,11 @@ const StyledMenu = styled.div<{ isOpenMenu: boolean }>`
   padding: 0.5rem 1rem;
   cursor: pointer;
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     display: block;
     position: absolute;
-    rigth: 0;
-    top: 1;
+    right: 0;
+    top: 0;
 
     div {
       width: 35px;
@@ -39,12 +39,13 @@ const StyledUl = styled.ul<{ isOpenMenu: boolean }>`
     display: inline-block;
   }
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     display: ${({ isOpenMenu }: any) => isOpenMenu ? 'block' : 'none'};
     position: absolute;
     border: 1px solid #ddd;
     top: 5rem;
-    left: 0;
+    right: 0;
+    width: 20rem;
 
     li {
       display: block;
@@ -53,8 +54,9 @@ const StyledUl = styled.ul<{ isOpenMenu: boolean }>`
 `
 
 export const StyledNavigation = styled.nav<StyledNavigationProps>`
-  ${breakpoint('mobile', 'tablet')`
-    position: relative;
+  ${breakpoint('xs', 'md')`
+    position: absolute;
+    right: 0;
   `}
 
   ${StyledUl}
@@ -75,7 +77,7 @@ export const StyledLink = styled(Link)`
 
   transition: 0.3s all ease;
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     height: 4rem;
     line-height: 4rem;
 

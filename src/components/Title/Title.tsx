@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
+import { breakpoint } from '../../utils';
 
 const StyledTitle = styled.div<StyledTitleProps>`
   h1 {
@@ -21,7 +21,7 @@ const StyledTitle = styled.div<StyledTitleProps>`
     text-align: center;
     margin: 0;
 
-    ${breakpoint('mobile', 'tablet')`
+    ${breakpoint('xs', 'md')`
       display: none;
     `}
   }

@@ -4,9 +4,8 @@ import { Copyright } from '../Copyright';
 import { Logo } from '../Logo';
 import { StyledLink, Navigation } from '../Navigation';
 import { Title } from '../Title';
-import { FontFamilyTypes } from '../../utils';
+import { breakpoint, FontFamilyTypes } from '../../utils';
 import { StyledTheme } from '../../theme/_types';
-import breakpoint from 'styled-components-breakpoint';
 
 const StyledContent = styled.section`
   color: ${({ theme }) => theme.textSecondary};
@@ -57,7 +56,7 @@ const FooterNavigation = styled(Navigation)`
       display: none;
   }
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     display: none;
   `}
 `;

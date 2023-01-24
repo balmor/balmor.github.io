@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { darken } from 'polished';
-import { FontFamilyTypes } from '../utils';
+import { breakpoint, FontFamilyTypes } from '../utils';
 import { normalize } from 'styled-normalize'
-import breakpoint, {map} from 'styled-components-breakpoint';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -42,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     line-height: 2.4rem;
 
-    ${breakpoint('mobile', 'tablet')`
+    ${breakpoint('xs', 'md')`
       font-size: 1.4rem;
     `}
 

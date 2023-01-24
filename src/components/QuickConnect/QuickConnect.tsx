@@ -10,7 +10,7 @@ import skypeIcon from '@iconify/icons-simple-line-icons/social-skype';
 import { StyledContactH2 } from '../Contact';
 import { PolandSvg } from '../PolandSvg';
 import { Translate } from '../Translate';
-import breakpoint from 'styled-components-breakpoint';
+import { breakpoint } from '../../utils';
 
 const icon = css`
   color: ${({ theme }) => theme.textThird};
@@ -20,7 +20,7 @@ const icon = css`
 const StyledQuickConnect = styled.div`
   width: 30%;
 
-  ${breakpoint('mobile', 'tablet')`
+  ${breakpoint('xs', 'md')`
     width: 70%;
   `}
 `;
