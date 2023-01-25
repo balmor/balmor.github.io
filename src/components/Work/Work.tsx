@@ -8,7 +8,13 @@ import movie from './../../images/movie.png';
 import exchange from './../../images/exchange.png';
 import { LineIcon } from '../LineIcon';
 import { Github } from '@styled-icons/fa-brands/Github';
-import { breakpoint } from '../../utils';
+import {
+  breakpoint,
+  EXCHANGE_LINK,
+  GITHUB_EXCHANGE_LINK,
+  GITHUB_MOVIE_LINK,
+  MOVIE_LINK,
+} from '../../utils';
 
 const StyledWork = styled.section`
   background: ${({ theme }) => lighten(0.1, theme.aboutBg)};
@@ -31,6 +37,11 @@ const StyledDescription = styled.p`
   margin: 5rem 3rem 2rem;
   font-weight: 700;
   height: 7rem;
+
+  ${breakpoint('xs', 'md')`
+    margin-top: 2rem;
+    height: 5rem;
+  `}
 `;
 
 const StyledIcon = styled.i`
@@ -113,11 +124,11 @@ export const Work: React.FC = (): JSX.Element => {
           <div>
             <ProjectTitle>
               <h3>Exchange Calc</h3>
-              <a href="https://github.com/balmor/exchange-rate">
+              <a href={GITHUB_EXCHANGE_LINK}>
                 <Github size={24} />
               </a>
             </ProjectTitle>
-            <StyledExchangeCalc href="https://balmor.github.io/exchange-rate/">
+            <StyledExchangeCalc href={EXCHANGE_LINK}>
               <StyledDescription>
                 typescript / react / react-query / styled-components / Material
                 UI / Webpack
@@ -129,12 +140,12 @@ export const Work: React.FC = (): JSX.Element => {
           </div>
           <div>
             <ProjectTitle>
-              <h3>Movie</h3>{' '}
-              <a href="https://github.com/balmor/movie_db">
+              <h3>Movie</h3>
+              <a href={GITHUB_MOVIE_LINK}>
                 <Github size={24} />
               </a>
             </ProjectTitle>
-            <StyledMovie href="https://balmor.github.io/movie_db">
+            <StyledMovie href={MOVIE_LINK}>
               <StyledDescription>
                 typescript / react / styled-components / Webpack
               </StyledDescription>

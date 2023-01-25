@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { StyledContactH2 } from '../Contact';
@@ -20,6 +20,10 @@ const StyledFormContact = styled.div`
 
 const StyledForm = styled.form`
   max-width: 50rem;
+
+  p {
+    color: red;
+  }
 `;
 
 const StyledSendButton = styled.button`
@@ -40,13 +44,13 @@ const StyledSendButton = styled.button`
 `;
 
 export const FormContact: React.FC = (): JSX.Element => {
+  const [formSuccess, setFormSuccess] = useState<boolean>(true);
   const { t } = useTranslation();
   const {
     control,
     handleSubmit,
   } = useForm<Inputs>({ mode: 'onBlur', reValidateMode: 'onBlur' });
-  const onSubmit: SubmitHandler<Inputs> = (data) =>
-    console.log('--> Submit form', data);
+  const onSubmit: SubmitHandler<Inputs> = () => setFormSuccess(false);
 
   return (
     <StyledFormContact>
@@ -58,6 +62,7 @@ export const FormContact: React.FC = (): JSX.Element => {
         <Field control={control} name={'email'} label={t('email')} pattern={emailRegex} required />
         <Field control={control} name={'subject'} label={t('subject')} />
         <Field control={control} name={'message'} label={t('message')} required type="textarea" />
+        {!formSuccess && <p>{t('formError')}</p>}
         <StyledSendButton type="submit">
           <Translate i18nKey="send" />
         </StyledSendButton>

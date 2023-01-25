@@ -24,6 +24,7 @@ export type General = {
   email: string;
   subject: string;
   message: string;
+  formError: string;
   firstMeDescription: string;
   secondMeDescription: string;
   thirdMeDescription: string;
