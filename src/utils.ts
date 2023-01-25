@@ -18,7 +18,7 @@ export const isBrowser = typeof window !== 'undefined';
 
 const breakpoints = {
   xs: 0,
-  sm: 576,
+  sm: 440,
   md: 815,
   lg: 992,
   xl: 1200,

@@ -10,6 +10,7 @@ import { Typescript } from '@styled-icons/simple-icons/Typescript';
 import { ReactLogo } from '@styled-icons/fa-brands/ReactLogo';
 import { Redux } from '@styled-icons/simple-icons/Redux';
 import { Git } from '@styled-icons/boxicons-logos/Git';
+import { breakpoint } from '../../utils';
 
 const StyledSkills = styled.div`
   max-width: 90rem;
@@ -18,6 +19,10 @@ const StyledSkills = styled.div`
   justify-content: space-between;
   margin: 0 auto 3rem;
   align-items: center;
+
+  ${breakpoint('xs', 'sm')`
+    flex-direction: column;
+  `}
 `;
 
 export const Skills: React.FC = (): JSX.Element => (
