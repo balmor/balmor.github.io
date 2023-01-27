@@ -10,10 +10,11 @@ const StyledTitle = styled.div<StyledTitleProps>`
     font-weight: 100;
     transition: 0.6s all ease;
     margin: 0;
+    color: ${({ loader }) => (loader ? 'white' : 'inherit')};
   }
 
   h2 {
-    color: ${({ theme }) => theme.textThird};
+    color: ${({ theme, loader }) => (loader ? '#8d9698' : theme.textThird)};
     transition: 0.6s all ease;
     margin: 0;
     font-size: 14px;
@@ -35,15 +36,22 @@ const StyledTitle = styled.div<StyledTitleProps>`
 
 type StyledTitleProps = {
   className?: string;
-}
+  loader?: boolean;
+};
 
 type TitleProps = StyledTitleProps & {
   title?: string;
   subtitle?: string;
-}
+  loader?: boolean;
+};
 
-export const Title: React.FC<TitleProps> = ({ title = 'Damian Duda', subtitle, className = '' }): JSX.Element => (
-  <StyledTitle className={className}>
+export const Title: React.FC<TitleProps> = ({
+  title = 'Damian Duda',
+  subtitle,
+  className = '',
+  loader = false,
+}): JSX.Element => (
+  <StyledTitle className={className} loader={loader}>
     <h1>{title}</h1>
     {subtitle && <h2>{subtitle}</h2>}
   </StyledTitle>

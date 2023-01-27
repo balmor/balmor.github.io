@@ -12,14 +12,15 @@ import { Theme } from '../components/Theme';
 
 import { i18nConfig } from '../i18n';
 import { ToTop } from '../components/ToTop';
+import { Preloader } from '../components/Preloader';
 
 i18n.use(LanguageDetector).use(initReactI18next).init(i18nConfig);
 
-// markup
 const IndexPage: React.FC = (): JSX.Element => {
   return (
     <ThemeStore>
       <Theme>
+        <Preloader />
         <Seo />
         <Header />
         <Content />

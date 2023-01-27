@@ -6,7 +6,7 @@ import { Work } from '../Work';
 import { Home } from './../Home';
 
 const StyledContent = styled.section`
-  background: #999;
+  background: white;
   color: ${({ theme }) => theme.textPrimary};
 `;
 
