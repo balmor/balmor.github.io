@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { ImageContext } from '../../context/ImageStore';
+import { ImageContext, ImageContextProps } from '../../context/ImageStore';
 import { Logo } from '../Logo';
 import { Title } from '../Title';
 
@@ -64,7 +64,14 @@ const StyledLogo = styled.div`
 `;
 
 export const Preloader = () => {
-  const { isLoading } = useContext<any>(ImageContext);
+  const { isLoading, setLoader } = useContext<ImageContextProps>(ImageContext);
+
+  useEffect(() => {
+    const LoaderPage = setTimeout(() => {
+      setLoader(false);
+    }, 900);
+    return () => clearTimeout(LoaderPage);
+  }, []);
 
   return (
     <StyledPreloader loader={isLoading}>

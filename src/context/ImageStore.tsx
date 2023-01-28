@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-interface ImageContextProps {
+export interface ImageContextProps {
   isLoading: boolean;
   setLoader: React.Dispatch<React.SetStateAction<boolean>>;
 }

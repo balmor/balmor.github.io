@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import cloud from '../../videos/cloud.webm';
 import cloudImg from '../../images/cloud.png';
 import { HelloWorld } from '../HelloWorld';
-import { ImageContext } from '../../context/ImageStore';
+import { ImageContext, ImageContextProps } from '../../context/ImageStore';
 
 const StyledHome = styled.section`
   display: flex;
@@ -47,7 +47,7 @@ const StyledClouds = styled.video`
 `;
 
 export const Home: React.FC = (): JSX.Element => {
-  const { setLoader } = useContext<any>(ImageContext);
+  const { setLoader } = useContext<ImageContextProps>(ImageContext);
 
   return (
     <StyledHome className="home">
