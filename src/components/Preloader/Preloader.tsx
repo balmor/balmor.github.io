@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { ImageContext } from '../../context/ImageStore';
 import { Logo } from '../Logo';
 import { Title } from '../Title';
 
@@ -63,17 +64,10 @@ const StyledLogo = styled.div`
 `;
 
 export const Preloader = () => {
-  const [loader, setLoader] = useState<boolean>(true);
-
-  useEffect(() => {
-    const LoaderPage = setTimeout(() => {
-      setLoader(false);
-    }, 1000);
-    return () => clearTimeout(LoaderPage);
-  }, []);
+  const { isLoading } = useContext<any>(ImageContext);
 
   return (
-    <StyledPreloader loader={loader}>
+    <StyledPreloader loader={isLoading}>
       <SVGLoader>
         <circle className="circle" cx="150" cy="150" r="149" fill="none" />
       </SVGLoader>

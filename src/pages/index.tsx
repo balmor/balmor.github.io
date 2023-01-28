@@ -8,6 +8,7 @@ import { Content } from '../components/Content';
 import { Footer } from '../components/Footer';
 import { Seo } from '../components/Seo';
 import { ThemeStore } from '../context/ThemeStore';
+import { ImageStore } from '../context/ImageStore';
 import { Theme } from '../components/Theme';
 
 import { i18nConfig } from '../i18n';
@@ -20,12 +21,14 @@ const IndexPage: React.FC = (): JSX.Element => {
   return (
     <ThemeStore>
       <Theme>
-        <Preloader />
-        <Seo />
-        <Header />
-        <Content />
-        <Footer />
-        <ToTop />
+        <ImageStore>
+          <Preloader />
+          <Seo />
+          <Header />
+          <Content />
+          <Footer />
+          <ToTop />
+        </ImageStore>
       </Theme>
     </ThemeStore>
   );

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import cloud from '../../videos/cloud.webm';
 import cloudImg from '../../images/cloud.png';
 import { HelloWorld } from '../HelloWorld';
+import { ImageContext } from '../../context/ImageStore';
 
 const StyledHome = styled.section`
   display: flex;
@@ -46,6 +47,8 @@ const StyledClouds = styled.video`
 `;
 
 export const Home: React.FC = (): JSX.Element => {
+  const { setLoader } = useContext<any>(ImageContext);
+
   return (
     <StyledHome className="home">
       <StyledClouds
@@ -53,11 +56,8 @@ export const Home: React.FC = (): JSX.Element => {
         autoPlay
         poster={cloudImg}
         muted
-        onLoadStart={() => {
-          console.log('onLoadStart');
-        }}
         onLoadedData={() => {
-          console.log('onLoadedData');
+          setLoader(false);
         }}
       >
         <StyledSource src={cloud} type="video/webm" />
