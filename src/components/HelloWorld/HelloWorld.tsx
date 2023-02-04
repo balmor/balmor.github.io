@@ -8,20 +8,19 @@ const paragraph = css`
   font-weight: 600;
   margin: 0;
   text-align: center;
-  line-height: 7rem;
+  line-height: 10rem;
 
   ${breakpoint('xs', 'md')`
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 4rem;
   `}
 `;
 
 const StyledHelloWorld = styled.div`
   position: relative;
-  width: 70rem;
   margin: 0 auto;
   align-self: center;
-  padding: 10rem 0;
+  padding: 11rem 0;
 
   ${breakpoint('xs', 'md')`
     padding: 5rem 0;
@@ -40,17 +39,9 @@ const StyledFront = styled.p`
   text-shadow: 0.1rem 0.2rem 0 rgb(0 0 0 / 10%);
 `;
 
-const StyledLocation = styled.p`
-  ${paragraph}
-  font-size: 2.5rem;
-  color: white;
-  text-shadow: 0.1rem 0.2rem 0 rgb(0 0 0 / 10%);
-`;
-
 export const HelloWorld: React.FC = (): JSX.Element => (
   <StyledHelloWorld>
     <StyledHello><Translate i18nKey='hello' /></StyledHello>
     <StyledFront><Translate i18nKey='front' /></StyledFront>
-    <StyledLocation><Translate i18nKey='location' /></StyledLocation>
   </StyledHelloWorld>
 );

@@ -1,6 +1,6 @@
 # Damian Duda - Frontend Developer
 
-Frontend application using Gatsby, React, Typescript and Styled component.
+Damian Duda homepage using Gatsby, React, Typescript and Styled component.
 
 ## Getting Started
 
@@ -21,6 +21,14 @@ Build the app:
 ```
 yarn build
 ```
+
+## Link
+
+[Damian Duda](https://balmor.github.io/exchange-rate/)
+
+## Podgląd
+
+[<img src="public/static/preview.png" width="500"/>](/public/static/preview.png)
 
 ## TODO:
 
