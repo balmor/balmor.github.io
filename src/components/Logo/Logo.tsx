@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { logoSize } from './logoSize';
 
-type LogoSizeProps = 'small' | 'medium' | 'large';
+type LogoSizeProps = 'small' | 'medium' | 'large' | 'xlarge' | 'huge';
 type LogoColorProps = 'black' | 'blue' | 'gray' | 'white';
 type LogoProps = {
   size?: LogoSizeProps;
