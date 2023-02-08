@@ -10,13 +10,15 @@ interface ThemeContextProps {
 }
 
 export const getSavedMode = (): ThemeMode =>
-  isBrowser && window?.localStorage?.getItem(LS_THEME_KEY) === ThemeMode.Dark ? ThemeMode.Dark : ThemeMode.Light;
+  isBrowser && window.localStorage.getItem(LS_THEME_KEY) === ThemeMode.Dark ? ThemeMode.Dark : ThemeMode.Light;
 
 const ThemeContext = React.createContext<ThemeContextProps>({} as ThemeContextProps);
 
 export type ThemeStoreProps = { children: React.ReactNode };
 
 const ThemeStore: React.FC<ThemeStoreProps> = ({ children }): JSX.Element => {
+  console.log('--> getSavedMode', getSavedMode());
+  console.log('--> isBrowser', isBrowser);
   const [theme, setTheme] = useState<ThemeMode>(getSavedMode);
 
   const switchTheme = (theme: React.SetStateAction<ThemeMode>) => setTheme(theme);
