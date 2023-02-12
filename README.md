@@ -28,7 +28,7 @@ yarn build
 
 ## Podgląd
 
-[<img src="public/static/preview.png" width="500"/>](/public/static/preview.png)
+[<img src="src/images/preview.png" width="500"/>](/src/images/preview.png)
 
 ## TODO:
 
