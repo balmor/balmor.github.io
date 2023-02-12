@@ -1,10 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import { StyledH3 } from '.';
 import { Translate } from '../Translate';
-
-export const StyledH3 = styled.h3`
-  color: #e6e5e5;
-`;
 
 export const Me: React.FC = (): JSX.Element => (
   <>

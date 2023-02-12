@@ -1,35 +1,12 @@
 import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import { ThemeContext } from 'styled-components';
+import { StyledContact, StyledContactContent } from '.';
 import { StyledTheme } from '../../theme/_types';
-import { breakpoint } from '../../utils';
 import { FormContact } from '../FormContact';
 import { Heading } from '../Heading';
 import { QuickConnect } from '../QuickConnect';
 import { StyledContainer } from '../StyledContainer';
 import { Translate } from '../Translate/Translate';
-
-export const StyledContactH2 = styled.h2`
-  color: #677072;
-  font-size: 1.6rem;
-`;
-
-const StyledContactContent = styled.section`
-  display: flex;
-
-  ${breakpoint('xs', 'md')`
-    flex-direction: column;
-    align-items: center;
-  `}
-`;
-
-const StyledContact = styled.section`
-  background: ${({ theme }) => theme.headerBg};
-  height: 70rem;
-
-  ${breakpoint('xs', 'md')`
-    height: auto;
-  `}
-`;
 
 export const Contact: React.FC = (): JSX.Element => {
   const themeContext = useContext<StyledTheme>(ThemeContext);

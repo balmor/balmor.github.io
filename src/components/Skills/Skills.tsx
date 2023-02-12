@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Circle } from '../Circle';
 import { StyledH2 } from '../WhatIDo';
 import { Html5 } from '@styled-icons/fa-brands/Html5';
@@ -10,20 +9,7 @@ import { Typescript } from '@styled-icons/simple-icons/Typescript';
 import { ReactLogo } from '@styled-icons/fa-brands/ReactLogo';
 import { Redux } from '@styled-icons/simple-icons/Redux';
 import { Git } from '@styled-icons/boxicons-logos/Git';
-import { breakpoint } from '../../utils';
-
-const StyledSkills = styled.div`
-  max-width: 90rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 auto 3rem;
-  align-items: center;
-
-  ${breakpoint('xs', 'sm')`
-    flex-direction: column;
-  `}
-`;
+import { StyledSkills } from '.';
 
 export const Skills: React.FC = (): JSX.Element => (
   <>

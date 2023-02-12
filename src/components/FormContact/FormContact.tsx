@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { StyledContactH2 } from '../Contact';
 import { Field } from '../Field';
 import { emailRegex } from '../../utils';
 import { Translate } from '../Translate';
 import { useTranslation } from 'react-i18next';
+import { StyledForm, StyledFormContact, StyledSendButton } from '.';
 
 export type Inputs = {
   name: string;
@@ -13,35 +13,6 @@ export type Inputs = {
   subject?: string;
   message: string;
 };
-
-const StyledFormContact = styled.div`
-  width: 70%;
-`;
-
-const StyledForm = styled.form`
-  max-width: 50rem;
-
-  p {
-    color: red;
-  }
-`;
-
-const StyledSendButton = styled.button`
-  cursor: pointer;
-  background: none;
-  border: none;
-  font-size: 22px;
-  color: ${({ theme }) => theme.buttonBg};
-  height: 40px;
-  line-height: 40px;
-  border-radius: 3px;
-  transition: all 0.2s ease-out;
-
-  &:hover {
-    color: white;
-    background: ${({ theme }) => theme.buttonBgHover};
-  }
-`;
 
 export const FormContact: React.FC = (): JSX.Element => {
   const [formSuccess, setFormSuccess] = useState<boolean>(true);

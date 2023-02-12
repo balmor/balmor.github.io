@@ -1,11 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const StyledLocationMap = styled.path`
-  fill: ${({ theme }) => theme.buttonFg};
-  stroke: ${({ theme }) => theme.buttonBgHover};
-  stroke-width: 2px;
-`;
+import { StyledLocationMap } from './';
 
 export const PolandSvg: React.FC = (): JSX.Element => {
   return (

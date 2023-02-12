@@ -17,8 +17,6 @@ const ThemeContext = React.createContext<ThemeContextProps>({} as ThemeContextPr
 export type ThemeStoreProps = { children: React.ReactNode };
 
 const ThemeStore: React.FC<ThemeStoreProps> = ({ children }): JSX.Element => {
-  console.log('--> getSavedMode', getSavedMode());
-  console.log('--> isBrowser', isBrowser);
   const [theme, setTheme] = useState<ThemeMode>(getSavedMode);
 
   const switchTheme = (theme: React.SetStateAction<ThemeMode>) => setTheme(theme);
