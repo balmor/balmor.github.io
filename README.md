@@ -24,7 +24,7 @@ yarn build
 
 ## Link
 
-[Damian Duda](https://balmor.github.io/exchange-rate/)
+[Damian Duda](https://balmor.github.io)
 
 ## Podgląd
 
