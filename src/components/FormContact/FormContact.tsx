@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
 import { StyledContactH2 } from '../Contact';
 import { Field } from '../Field';
-import { emailRegex } from '../../utils';
+import { EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailRegex } from '../../utils';
 import { Translate } from '../Translate';
-import { useTranslation } from 'react-i18next';
-import { StyledForm, StyledFormContact, StyledSendButton } from '.';
+import { FormIcons, StyledErrorMessage, StyledForm, StyledFormContact, StyledSendButton, StyledSuccessMessage } from '.';
+import { emailClear, emailFailure, emailReducer, emailRequest, emailSuccess, initEmail } from '../../reducers/emailForm';
 
 export type Inputs = {
   name: string;
@@ -15,13 +17,34 @@ export type Inputs = {
 };
 
 export const FormContact: React.FC = (): JSX.Element => {
-  const [formSuccess, setFormSuccess] = useState<boolean>(true);
+  const [{ success, failure, loading, errorMessage }, dispatch] = useReducer(emailReducer, initEmail);
+
   const { t } = useTranslation();
   const {
     control,
     handleSubmit,
   } = useForm<Inputs>({ mode: 'onBlur', reValidateMode: 'onBlur' });
-  const onSubmit: SubmitHandler<Inputs> = () => setFormSuccess(false);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      dispatch(emailClear());
+      dispatch(emailRequest());
+      const result = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data, EMAILJS_PUBLIC_KEY);
+
+      if (result.text !== 'OK') {
+        throw new Error(result.text);
+      }
+
+      dispatch(emailSuccess());
+    } catch(error) {
+      dispatch(emailFailure(error.text));
+    };
+  };
+
+  const handleFocus = () => {
+    if (success || failure) {
+      dispatch(emailClear());
+    }
+  }
 
   return (
     <StyledFormContact>
@@ -29,13 +52,15 @@ export const FormContact: React.FC = (): JSX.Element => {
         <Translate i18nKey="form" />
       </StyledContactH2>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <Field control={control} name={'name'} label={t('inputName')} required />
-        <Field control={control} name={'email'} label={t('email')} pattern={emailRegex} required />
-        <Field control={control} name={'subject'} label={t('subject')} />
-        <Field control={control} name={'message'} label={t('message')} required type="textarea" />
-        {!formSuccess && <p>{t('formError')}</p>}
+        <Field control={control} onFocus={handleFocus} name={'name'} label={t('inputName')} required />
+        <Field control={control} onFocus={handleFocus} name={'email'} label={t('email')} pattern={emailRegex} required />
+        <Field control={control} onFocus={handleFocus} name={'subject'} label={t('subject')} />
+        <Field control={control} onFocus={handleFocus} name={'message'} label={t('message')} required type="textarea" />
+        {failure && <StyledErrorMessage>{errorMessage}</StyledErrorMessage>}
+        {success && <StyledSuccessMessage><Translate i18nKey="formSuccess" /></StyledSuccessMessage>}
         <StyledSendButton type="submit">
           <Translate i18nKey="send" />
+          <FormIcons { ...{ success, loading, failure }} />
         </StyledSendButton>
       </StyledForm>
     </StyledFormContact>

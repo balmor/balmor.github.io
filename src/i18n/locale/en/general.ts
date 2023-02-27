@@ -21,6 +21,7 @@ export const general: General = {
   subject: 'Subject',
   message: 'Message',
   formError: 'Something went wrong!',
+  formSuccess: 'Thank you for your message',
   firstMeDescription: `I’m a frontend developer who loves building user-friendly websites and web apps.
   Experienced with all stages of the development cycle for dynamic web
   projects.`,

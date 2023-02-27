@@ -4,13 +4,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-source-contentful',
-      options: {
-        accessToken: 'Uv164jVxo0MDJTBk1Kpv2VrO84RPNDvsh-Fui15nqIQ',
-        spaceId: 'g8n1aey0wb64',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-typescript',
       options: {
         isTSX: true, // defaults to false

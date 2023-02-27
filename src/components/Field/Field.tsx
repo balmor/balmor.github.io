@@ -23,6 +23,7 @@ type FieldProps = {
   type?: string;
   required?: boolean;
   pattern?: RegExp | undefined;
+  onFocus?: () => void;
 };
 
 export const Field: React.FC<FieldProps> = ({
@@ -32,6 +33,7 @@ export const Field: React.FC<FieldProps> = ({
   type = '',
   required = false,
   pattern,
+  onFocus,
 }) => {
   return (
     <Controller
@@ -52,6 +54,7 @@ export const Field: React.FC<FieldProps> = ({
                 isError={!!error}
                 isTouched={isTouched}
                 placeholder={label}
+                onFocus={onFocus}
               />
             ) : (
               <StyledInput
@@ -60,6 +63,7 @@ export const Field: React.FC<FieldProps> = ({
                 isError={!!error}
                 isTouched={isTouched}
                 placeholder={label}
+                onFocus={onFocus}
               />
             )}
             <StyledLabel>{label}</StyledLabel>

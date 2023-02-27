@@ -38,3 +38,4 @@ yarn build
 - [x] rewrite to reactjs / typescript / gatsby
 - [x] use react-hook-form for contact form
 - [x] add responsive mode for tablets and smartphones
+- [ ] accessibility

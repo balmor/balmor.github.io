@@ -25,6 +25,7 @@ export type General = {
   subject: string;
   message: string;
   formError: string;
+  formSuccess: string;
   firstMeDescription: string;
   secondMeDescription: string;
   thirdMeDescription: string;

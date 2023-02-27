@@ -21,6 +21,7 @@ export const general: General = {
   subject: 'Temat',
   message: 'Wiadomość',
   formError: 'Coś poszło nie tak!',
+  formSuccess: 'Dzięki za wiadomość',
   firstMeDescription: `Jestem programistą frontendowym, który uwielbia tworzyć przyjazne dla użytkownika strony i aplikacje internetowe.
   Doświadczony we wszystkich etapach cyklu tworzenia dynamicznych projektów internetowych.`,
   secondMeDescription: `Tworzę, rozwijam i utrzymuję strony internetowe, które spełniają standardy sieciowe i najlepsze praktyki.`,
