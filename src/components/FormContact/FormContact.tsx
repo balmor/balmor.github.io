@@ -25,6 +25,9 @@ export const FormContact: React.FC = (): JSX.Element => {
     handleSubmit,
   } = useForm<Inputs>({ mode: 'onBlur', reValidateMode: 'onBlur' });
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    console.log('--> env EMAILJS_TEMPLATE_ID', EMAILJS_TEMPLATE_ID);
+    console.log('--> process.env.GATSBY_EMAILJS_TEMPLATE_ID', process.env.GATSBY_EMAILJS_TEMPLATE_ID);
+
     try {
       dispatch(emailClear());
       dispatch(emailRequest());
