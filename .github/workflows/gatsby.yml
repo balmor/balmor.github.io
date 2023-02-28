@@ -85,8 +85,8 @@ jobs:
           echo HELLO_URL="$HELLO_URL" >> .env.production
           echo SEARCH_URL="$SEARCH_URL" >> .env.production
           echo SEARCH_ENABLED="$SEARCH_ENABLED" >> .env.production
+          ${{ steps.detect-package-manager.outputs.manager }} run build
         shell: bash
-        run: ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
