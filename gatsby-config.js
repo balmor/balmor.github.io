@@ -86,14 +86,6 @@ module.exports = {
         ],
         display: 'swap'
       }
-    },
-    {
-      resolve: `gatsby-source-custom`,
-      options: {
-        serviceId: process.env.GATSBY_EMAILJS_SERVICE_ID,
-        templateId: process.env.GATSBY_EMAILJS_TEMPLATE_ID,
-        publicKey: process.env.GATSBY_EMAILJS_PUBLIC_KEY,
-      }
     }
   ],
 };
