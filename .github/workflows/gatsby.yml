@@ -83,6 +83,7 @@ jobs:
           GATSBY_EMAILJS_SERVICE_ID: ${{ secrets.GATSBY_EMAILJS_SERVICE_ID }}
           GATSBY_EMAILJS_TEMPLATE_ID: ${{ secrets.GATSBY_EMAILJS_TEMPLATE_ID }}
 
+      - name: Test env
         run: echo "GATSBY_EMAILJS_PUBLIC_KEY" >> $GATSBY_EMAILJS_PUBLIC_KEY
 
       - name: Upload artifact
