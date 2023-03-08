@@ -78,10 +78,14 @@ jobs:
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
+        run: ${{ steps.detect-package-manager.outputs.manager }} run build
+        env:
           GATSBY_EMAILJS_PUBLIC_KEY: ${{ secrets.GATSBY_EMAILJS_PUBLIC_KEY }}
           GATSBY_EMAILJS_SERVICE_ID: ${{ secrets.GATSBY_EMAILJS_SERVICE_ID }}
           GATSBY_EMAILJS_TEMPLATE_ID: ${{ secrets.GATSBY_EMAILJS_TEMPLATE_ID }}
-        run: ${{ steps.detect-package-manager.outputs.manager }} run build
+
+        echo "GATSBY_EMAILJS_PUBLIC_KEY" >> $GATSBY_EMAILJS_PUBLIC_KEY
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
