@@ -18,6 +18,7 @@ export type Inputs = {
 
 export const FormContact: React.FC = (): JSX.Element => {
   const [{ success, failure, loading, errorMessage }, dispatch] = useReducer(emailReducer, initEmail);
+  console.log('--> RUN FORM');
 
   const { t } = useTranslation();
   const {
