@@ -38,4 +38,5 @@ yarn build
 - [x] rewrite to reactjs / typescript / gatsby
 - [x] use react-hook-form for contact form
 - [x] add responsive mode for tablets and smartphones
+- [ ] fix dependencies (styled-components-breakpoint@3.0.0-preview.20" has incorrect peer dependency "styled-components@>= 1 <= 4")
 - [ ] accessibility
