@@ -11,6 +11,10 @@ export const StyledTitle = styled.div<StyledTitleProps>`
     transition: 0.6s all ease;
     margin: 0;
     color: ${({ loader }) => (loader ? 'white' : 'inherit')};
+
+    ${breakpoint('xs', 'md')`
+      width: 10rem;
+    `}
   }
 
   h2 {

@@ -3,6 +3,7 @@ import { lighten } from 'polished';
 
 import movie from './../../images/movie.png';
 import exchange from './../../images/exchange.png';
+import frontquiz from './../../images/frontquiz.png';
 import { breakpoint } from '../../utils';
 
 export const StyledWork = styled.section`
@@ -16,6 +17,7 @@ export const StyledExamples = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
+  gap: 4rem;
 `;
 
 export const StyledDescription = styled.p`
@@ -73,6 +75,12 @@ const StyledImage = css`
     width: 30rem;
     height: 18rem;
   `}
+`;
+
+export const StyledFrontendQuiz = styled.a`
+  ${StyledImage}
+
+  background-image: url(${frontquiz});
 `;
 
 export const StyledExchangeCalc = styled.a`

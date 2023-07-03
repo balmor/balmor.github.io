@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { breakpoint } from '../../utils';
 
 import { KeyboardArrowRight } from '@styled-icons/material-rounded/KeyboardArrowRight';
 import { KeyboardArrowDown } from '@styled-icons/material-rounded/KeyboardArrowDown';
@@ -44,9 +45,14 @@ export const StyledDropdown = styled.div`
   position: relative;
   width: 10rem;
 
+  ${breakpoint('xs', 'md')`
+    width: auto;
+    margin: 1.4rem 0;
+  `}
+
   &:hover {
     ${StyledArrowRight}, ${StyledArrowDown}, ${StyledButton}:hover {
-      color: black;
+      color: ${({ theme }) => theme.textHover};
     }
   }
 `;

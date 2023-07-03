@@ -1,5 +1,7 @@
 import { createBreakpoint } from "styled-components-breakpoint";
 
+export const GITHUB_FRONTQUIZ_LINK =  'https://github.com/balmor/frontend-quiz';
+export const FRONTQUIZ_LINK =  'https://frontquiz.vercel.app';
 export const GITHUB_EXCHANGE_LINK =  'https://github.com/balmor/exchange-rate';
 export const EXCHANGE_LINK =  'https://balmor.github.io/exchange-rate';
 export const GITHUB_MOVIE_LINK =  'https://github.com/balmor/movie_db';

@@ -8,7 +8,9 @@ import { LineIcon } from '../LineIcon';
 import { Github } from '@styled-icons/fa-brands/Github';
 import {
   EXCHANGE_LINK,
+  FRONTQUIZ_LINK,
   GITHUB_EXCHANGE_LINK,
+  GITHUB_FRONTQUIZ_LINK,
   GITHUB_MOVIE_LINK,
   MOVIE_LINK,
 } from '../../utils';
@@ -17,6 +19,7 @@ import {
   StyledDescription,
   StyledExamples,
   StyledExchangeCalc,
+  StyledFrontendQuiz,
   StyledIcon,
   StyledMovie,
   StyledWork,
@@ -30,6 +33,22 @@ export const Work: React.FC = (): JSX.Element => {
           <Translate i18nKey="work" />
         </Heading>
         <StyledExamples>
+          <div>
+            <ProjectTitle>
+              <h3>FrontendQUIZ</h3>
+              <a href={GITHUB_FRONTQUIZ_LINK}>
+                <Github size={24} />
+              </a>
+            </ProjectTitle>
+            <StyledFrontendQuiz href={FRONTQUIZ_LINK}>
+              <StyledDescription>
+                nextjs / typescript / react / tailwindcss / contentful
+              </StyledDescription>
+              <StyledIcon>
+                <LineIcon icon="attachment" size={50} />
+              </StyledIcon>
+            </StyledFrontendQuiz>
+          </div>
           <div>
             <ProjectTitle>
               <h3>Exchange Calc</h3>
