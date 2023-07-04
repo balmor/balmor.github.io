@@ -42,7 +42,7 @@ export const Work: React.FC = (): JSX.Element => {
             </ProjectTitle>
             <StyledFrontendQuiz href={FRONTQUIZ_LINK}>
               <StyledDescription>
-                nextjs / typescript / react / tailwindcss / contentful
+                nextjs · typescript · react · tailwindcss · contentful
               </StyledDescription>
               <StyledIcon>
                 <LineIcon icon="attachment" size={50} />
@@ -58,8 +58,8 @@ export const Work: React.FC = (): JSX.Element => {
             </ProjectTitle>
             <StyledExchangeCalc href={EXCHANGE_LINK}>
               <StyledDescription>
-                typescript / react / react-query / styled-components / Material
-                UI / Webpack
+                typescript · react · react·query · styled-components · material
+                UI · webpack
               </StyledDescription>
               <StyledIcon>
                 <LineIcon icon="attachment" size={50} />
@@ -75,7 +75,7 @@ export const Work: React.FC = (): JSX.Element => {
             </ProjectTitle>
             <StyledMovie href={MOVIE_LINK}>
               <StyledDescription>
-                typescript / react / styled-components / Webpack
+                typescript · react · styled-components · webpack
               </StyledDescription>
               <StyledIcon>
                 <LineIcon icon="attachment" size={50} />

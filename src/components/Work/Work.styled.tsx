@@ -23,7 +23,7 @@ export const StyledExamples = styled.div`
 export const StyledDescription = styled.p`
   display: none;
   color: white;
-  text-decoration: none;
+  text-align: center;
   z-index: 4;
   margin: 5rem 3rem 2rem;
   font-weight: 700;
@@ -44,7 +44,9 @@ export const StyledIcon = styled.i`
 const StyledImage = css`
   position: relative;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 40rem 28rem;
+  background-position: center;
+  text-decoration: none;
   display: flex;
   width: 40rem;
   height: 28rem;
