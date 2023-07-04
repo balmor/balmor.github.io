@@ -34,12 +34,6 @@ export const QuickConnect: React.FC = (): JSX.Element => (
         <a href="mailto:damian.duda@live.com">damian.duda@live.com</a>
       </dd>
       <dt>
-        <StyledSimpleIcon icon={globeIcon} />
-      </dt>
-      <dd>
-        <a href="http://www.damianduda.eu">damianduda.eu</a>
-      </dd>
-      <dt>
         <StyledSimpleIcon icon={skypeIcon} />
       </dt>
       <dd>
